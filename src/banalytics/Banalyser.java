@@ -115,7 +115,8 @@ public class Banalyser
     }
 
     /**
-     * @param etat the etat to set
+     * @param etat
+     *            the etat to set
      */
     public void setEtat(Etat etat)
     {
@@ -131,7 +132,8 @@ public class Banalyser
     }
 
     /**
-     * @param media the media to set
+     * @param media
+     *            the media to set
      */
     public void setMedia(Media media)
     {

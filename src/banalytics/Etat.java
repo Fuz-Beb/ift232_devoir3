@@ -1,6 +1,3 @@
-/**
- * 
- */
 package banalytics;
 
 /**
@@ -9,7 +6,7 @@ package banalytics;
  */
 public abstract class Etat
 {
-    private Media media;
+    protected Media media;
     
     /**
      * Constructeur de confort
@@ -18,7 +15,7 @@ public abstract class Etat
      */
     public Etat(Media media)
     {
-        this.setMedia(media);
+        this.media = media;
     }
     
     public abstract void start(int position);
@@ -26,22 +23,5 @@ public abstract class Etat
     public abstract void pause(long position);
     public abstract void resume(long time);
     public abstract void move(long position);
-    public abstract void buffer(long position);
-
-    /**
-     * @return the media
-     */
-    public Media getMedia()
-    {
-        return media;
-    }
-
-    /**
-     * @param media the media to set
-     */
-    public void setMedia(Media media)
-    {
-        this.media = media;
-    }
-    
+    public abstract void buffer(long position);    
 }

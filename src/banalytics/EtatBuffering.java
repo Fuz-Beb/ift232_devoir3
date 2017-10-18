@@ -20,64 +20,39 @@ public class EtatBuffering extends Etat
         super(media);
     }
 
-    /* (non-Javadoc)
-     * @see banalytics.Etat#start(int)
-     */
     @Override
     public void start(int position)
     {
-        // TODO Auto-generated method stub
-
+        throw new ExceptionDevoir2("Seul l'etat INITIAL et STOPPED sont acceptes dans un start()");
     }
 
-    /* (non-Javadoc)
-     * @see banalytics.Etat#stop(long)
-     */
     @Override
     public void stop(long position)
     {
-        // TODO Auto-generated method stub
-
+        throw new ExceptionDevoir2("Seul l'etat PLAYING et PAUSED sont acceptes dans un stop()");
     }
 
-    /* (non-Javadoc)
-     * @see banalytics.Etat#pause(long)
-     */
     @Override
     public void pause(long position)
     {
-        // TODO Auto-generated method stub
-
+        throw new ExceptionDevoir2("Seul l'etat PLAYING est accepte dans un pause()");
     }
 
-    /* (non-Javadoc)
-     * @see banalytics.Etat#resume(long)
-     */
     @Override
-    public void resume(long position)
+    public void resume(long time)
     {
-        // TODO Auto-generated method stub
-
+        media.getLog().closeBufferingEntry(time);
     }
 
-    /* (non-Javadoc)
-     * @see banalytics.Etat#move(long)
-     */
     @Override
     public void move(long position)
     {
-        // TODO Auto-generated method stub
-
+        throw new ExceptionDevoir2("Seul l'etat PLAYING et PAUSED sont acceptes dans un move()");
     }
 
-    /* (non-Javadoc)
-     * @see banalytics.Etat#buffer(long)
-     */
     @Override
     public void buffer(long position)
     {
-        // TODO Auto-generated method stub
-
+        throw new ExceptionDevoir2("Seul l'etat PLAYING est accepte dans un buffer()");
     }
-
 }
