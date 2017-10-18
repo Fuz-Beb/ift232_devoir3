@@ -80,7 +80,7 @@ public class Banalyser
         if (getClass() != obj.getClass())
             return false;
         Banalyser other = (Banalyser) obj;
-        if (etat != other.etat)
+        if (!etat.equals(other.etat))
             return false;
         if (getMedia().getLog() == null)
         {
