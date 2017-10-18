@@ -23,43 +23,37 @@ public class EtatPlaying extends Etat
     @Override
     public void start(int position)
     {
-        // TODO Auto-generated method stub
-        
+        throw new ExceptionDevoir2("Seul l'etat INITIAL et STOPPED sont acceptes dans un start()");
     }
 
     @Override
     public void stop(long position)
     {
-        // TODO Auto-generated method stub
-        
+        media.getLog().closePlaySegment(position);
     }
 
     @Override
     public void pause(long position)
     {
-        // TODO Auto-generated method stub
-        
+        media.getLog().openPauseEntry(position);
     }
 
     @Override
     public void resume(long position)
     {
-        // TODO Auto-generated method stub
-        
+        throw new ExceptionDevoir2("Seul l'etat PAUSED et BUFFERING sont acceptes dans un resume()");
     }
     
     @Override
     public void move(long position)
     {
-        // TODO Auto-generated method stub
-        
+        media.getLog().addMoveEntry(position);
+        media.getLog().openPauseEntry(position);
     }
 
     @Override
     public void buffer(long position)
     {
-        // TODO Auto-generated method stub
-        
+        media.getLog().openBufferingEntry(position);
     }
-
 }
