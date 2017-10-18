@@ -4,7 +4,7 @@ package banalytics;
  * Structure repr�sentant un contenu multim�dia.
  */
 
-public class Media
+public abstract class Media
 {
     final static String VIDEO = ".mov";
     final static String MUSIC = ".mp3";
@@ -13,12 +13,16 @@ public class Media
     private String title;
     private String type; // MUSIC or VIDEO
     private long duration;
-
-    public String getType()
-    {
-        return type;
-    }
-
+    private MediaLog log;
+    
+    /**
+     * Con
+     * 
+     * @param author
+     * @param title
+     * @param type
+     * @param duration
+     */
     public Media(String author, String title, String type, long duration)
     {
         this.author = author;
@@ -27,46 +31,7 @@ public class Media
         this.duration = duration;
     }
 
-    public String toString()
-    {
-
-        String res = "";
-
-        if (type == MUSIC)
-        {
-
-            res += "Audio: ";
-        }
-        else
-        {
-            res += "Video: ";
-        }
-
-        long hours = duration / (3600 * 1000);
-        long minutes = (duration % (3600 * 1000)) / (60 * 1000);
-        long seconds = ((duration) % (60 * 1000)) / 1000;
-        res += author + ": " + title + " (" + hours + "h" + minutes + "m" + seconds + "s)";
-
-        return res;
-
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see java.lang.Object#hashCode()
-     */
-    @Override
-    public int hashCode()
-    {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((author == null) ? 0 : author.hashCode());
-        result = prime * result + (int) (duration ^ (duration >>> 32));
-        result = prime * result + ((title == null) ? 0 : title.hashCode());
-        result = prime * result + ((type == null) ? 0 : type.hashCode());
-        return result;
-    }
+    public abstract String toString();
 
     @Override
     public boolean equals(Object obj)
@@ -102,5 +67,85 @@ public class Media
         else if (!type.equals(other.type))
             return false;
         return true;
+    }
+
+    /**
+     * @return the log
+     */
+    public MediaLog getLog()
+    {
+        return log;
+    }
+
+    /**
+     * @param log the log to set
+     */
+    public void setLog(MediaLog log)
+    {
+        this.log = log;
+    }
+
+    /**
+     * @return the author
+     */
+    public String getAuthor()
+    {
+        return author;
+    }
+
+    /**
+     * @param author the author to set
+     */
+    public void setAuthor(String author)
+    {
+        this.author = author;
+    }
+
+    /**
+     * @return the title
+     */
+    public String getTitle()
+    {
+        return title;
+    }
+
+    /**
+     * @param title the title to set
+     */
+    public void setTitle(String title)
+    {
+        this.title = title;
+    }
+
+    /**
+     * @return the duration
+     */
+    public long getDuration()
+    {
+        return duration;
+    }
+
+    /**
+     * @param duration the duration to set
+     */
+    public void setDuration(long duration)
+    {
+        this.duration = duration;
+    }
+    
+    /**
+     * @return the type
+     */
+    public String getType()
+    {
+        return type;
+    }
+
+    /**
+     * @param type the type to set
+     */
+    public void setType(String type)
+    {
+        this.type = type;
     }
 }

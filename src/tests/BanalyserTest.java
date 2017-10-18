@@ -2,6 +2,8 @@ package tests;
 
 import banalytics.Banalyser;
 import banalytics.Media;
+import banalytics.MediaMusic;
+import banalytics.MediaVideo;
 
 public class BanalyserTest
 {
@@ -10,7 +12,7 @@ public class BanalyserTest
     {
 
         // DEBUT - Objet 1
-        Media music = new Media("The Space Explorers", "Big Falcon Rocket", ".mp3", 180000);
+        Media music = new MediaMusic("The Space Explorers", "Big Falcon Rocket", ".mp3", 180000);
 
         Banalyser musicAnalyser = new Banalyser(music);
 
@@ -30,7 +32,7 @@ public class BanalyserTest
 
         // DEBUT - Objet 2
 
-        Media video = new Media("ESA Channel", "The Beagle hasn't landed", ".mov", 953000);
+        Media video = new MediaVideo("ESA Channel", "The Beagle hasn't landed", ".mov", 953000);
         Banalyser videoAnalyser = new Banalyser(video);
 
         // Génération des entries

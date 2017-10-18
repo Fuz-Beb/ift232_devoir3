@@ -13,7 +13,7 @@ public class Banalyser
 
     private Media media;
 
-    private MediaLog log;
+
 
     private int etat;
     final static private int INITIAL = 1;
@@ -34,7 +34,7 @@ public class Banalyser
     {
 
         String res = "" + media;
-        res += "\n" + log + "\n";
+        res += "\n" + media.getLog() + "\n";
         return res;
     }
 
@@ -43,32 +43,13 @@ public class Banalyser
 
         if (etat == INITIAL)
         {
-            if (media.getType() == Media.MUSIC)
-            {
-                log = new MusicLog();
-                log.openPlaySegment(position);
-                etat = PLAYING;
-            }
-            if (media.getType() == Media.VIDEO)
-            {
-                log = new VideoLog();
-                log.openPlaySegment(position);
-                etat = PLAYING;
-            }
+            media.getLog().openPlaySegment(position);
+            etat = PLAYING;
         }
         else if (etat == STOPPED)
         {
-
-            if (media.getType() == Media.MUSIC)
-            {
-                log.openPlaySegment(position);
-                etat = PLAYING;
-            }
-            if (media.getType() == Media.VIDEO)
-            {
-                log.openPlaySegment(position);
-                etat = PLAYING;
-            }
+            media.getLog().openPlaySegment(position);
+            etat = PLAYING;
         }
         else
         {
@@ -85,12 +66,12 @@ public class Banalyser
         {
             if (media.getType() == Media.MUSIC)
             {
-                log.closePlaySegment(position);
+                media.getLog().closePlaySegment(position);
                 etat = STOPPED;
             }
             if (media.getType() == Media.VIDEO)
             {
-                log.closePlaySegment(position);
+                media.getLog().closePlaySegment(position);
                 etat = STOPPED;
             }
         }
@@ -98,14 +79,14 @@ public class Banalyser
         {
             if (media.getType() == Media.MUSIC)
             {
-                log.closePauseEntry(position);
-                log.closePlaySegment(position);
+                media.getLog().closePauseEntry(position);
+                media.getLog().closePlaySegment(position);
                 etat = STOPPED;
             }
             if (media.getType() == Media.VIDEO)
             {
-                log.closePauseEntry(position);
-                log.closePlaySegment(position);
+                media.getLog().closePauseEntry(position);
+                media.getLog().closePlaySegment(position);
                 etat = STOPPED;
             }
         }
@@ -123,12 +104,12 @@ public class Banalyser
         {
             if (media.getType() == Media.MUSIC)
             {
-                log.openPauseEntry(position);
+                media.getLog().openPauseEntry(position);
                 etat = PAUSED;
             }
             if (media.getType() == Media.VIDEO)
             {
-                log.openPauseEntry(position);
+                media.getLog().openPauseEntry(position);
                 etat = PAUSED;
             }
         }
@@ -145,12 +126,12 @@ public class Banalyser
         {
             if (media.getType() == Media.MUSIC)
             {
-                log.closePauseEntry(time);
+                media.getLog().closePauseEntry(time);
                 etat = PLAYING;
             }
             if (media.getType() == Media.VIDEO)
             {
-                log.closePauseEntry(time);
+                media.getLog().closePauseEntry(time);
                 etat = PLAYING;
             }
         }
@@ -159,12 +140,12 @@ public class Banalyser
         {
             if (media.getType() == Media.MUSIC)
             {
-                log.closeBufferingEntry(time);
+                media.getLog().closeBufferingEntry(time);
                 etat = PLAYING;
             }
             if (media.getType() == Media.VIDEO)
             {
-                log.closeBufferingEntry(time);
+                media.getLog().closeBufferingEntry(time);
                 etat = PLAYING;
             }
         }
@@ -181,14 +162,14 @@ public class Banalyser
         {
             if (media.getType() == Media.MUSIC)
             {
-                log.addMoveEntry(position);
-                log.openPauseEntry(position);
+                media.getLog().addMoveEntry(position);
+                media.getLog().openPauseEntry(position);
                 etat = PAUSED;
             }
             if (media.getType() == Media.VIDEO)
             {
-                log.addMoveEntry(position);
-                log.openPauseEntry(position);
+                media.getLog().addMoveEntry(position);
+                media.getLog().openPauseEntry(position);
                 etat = PAUSED;
             }
         }
@@ -196,12 +177,12 @@ public class Banalyser
         {
             if (media.getType() == Media.MUSIC)
             {
-                log.addMoveEntry(position);
+                media.getLog().addMoveEntry(position);
 
             }
             if (media.getType() == Media.VIDEO)
             {
-                log.addMoveEntry(position);
+                media.getLog().addMoveEntry(position);
 
             }
         }
@@ -217,12 +198,12 @@ public class Banalyser
         {
             if (media.getType() == Media.MUSIC)
             {
-                log.openBufferingEntry(position);
+                media.getLog().openBufferingEntry(position);
                 etat = BUFFERING;
             }
             if (media.getType() == Media.VIDEO)
             {
-                log.openBufferingEntry(position);
+                media.getLog().openBufferingEntry(position);
                 etat = BUFFERING;
             }
         }
@@ -244,12 +225,12 @@ public class Banalyser
         Banalyser other = (Banalyser) obj;
         if (etat != other.etat)
             return false;
-        if (log == null)
+        if (media.getLog() == null)
         {
-            if (other.log != null)
+            if (other.media.getLog() != null)
                 return false;
         }
-        else if (!log.equals(other.log))
+        else if (!media.getLog().equals(other.media.getLog()))
             return false;
         if (media == null)
         {

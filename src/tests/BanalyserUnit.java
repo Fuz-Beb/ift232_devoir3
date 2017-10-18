@@ -9,6 +9,8 @@ import org.junit.Test;
 import banalytics.Banalyser;
 import banalytics.ExceptionDevoir2;
 import banalytics.Media;
+import banalytics.MediaMusic;
+import banalytics.MediaVideo;
 
 /**
  * Classe de test permettant de tester le bon fonctionnemnt de la classe
@@ -25,8 +27,8 @@ public class BanalyserUnit
     @Before
     public void setup()
     {
-        music = new Media("The Space Explorers", "Big Falcon Rocket", ".mp3", 180000);
-        video = new Media("ESA Channel", "The Beagle hasn't landed", ".mov", 953000);
+        music = new MediaMusic("The Space Explorers", "Big Falcon Rocket", ".mp3", 180000);
+        video = new MediaVideo("ESA Channel", "The Beagle hasn't landed", ".mov", 953000);
 
         // Test de la methode equals avec une musique
         analyser1 = new Banalyser(music);
