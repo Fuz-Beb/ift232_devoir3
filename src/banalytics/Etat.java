@@ -7,7 +7,7 @@ package banalytics;
 public abstract class Etat
 {
     protected Media media;
-    
+
     /**
      * Constructeur de confort
      * 
@@ -17,11 +17,16 @@ public abstract class Etat
     {
         this.media = media;
     }
-    
+
     public abstract void start(int position);
+
     public abstract void stop(long position);
+
     public abstract void pause(long position);
+
     public abstract void resume(long time);
+
     public abstract void move(long position);
-    public abstract void buffer(long position);    
+
+    public abstract void buffer(long position);
 }
