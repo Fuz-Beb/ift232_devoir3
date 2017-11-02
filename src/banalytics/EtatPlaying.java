@@ -1,15 +1,10 @@
-/**
- * 
- */
 package banalytics;
 
 /**
- * @author Bebo
- *
+ * Classe qui représente l'état playing
  */
 public class EtatPlaying extends Etat
 {
-
     /**
      * Constructeur de confort
      * 
@@ -43,7 +38,7 @@ public class EtatPlaying extends Etat
     {
         throw new ExceptionDevoir2("Seul l'etat PAUSED et BUFFERING sont acceptes dans un resume()");
     }
-    
+
     @Override
     public void move(long position)
     {

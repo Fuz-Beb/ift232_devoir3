@@ -1,15 +1,10 @@
-/**
- * 
- */
 package banalytics;
 
 /**
- * @author Bebo
- *
+ * Classe qui représente l'état stop
  */
 public class EtatStopped extends Etat
 {
-
     /**
      * Constructeur de confort
      * 

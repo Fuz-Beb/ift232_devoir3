@@ -6,7 +6,7 @@ package banalytics;
 
 public class VideoLog extends MediaLog
 {
-    
+
     public String toString()
     {
 

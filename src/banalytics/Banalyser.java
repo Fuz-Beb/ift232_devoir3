@@ -1,23 +1,17 @@
 package banalytics;
 
-/*
+/**
  * Classe qui sert � journaliser les �v�nements qui surviennent durant
  * l'utilisation d'un contenu multim�dia par un utilisateur. Une fois les
  * �v�nements correctement journalis�s, il deviendra possible d'analyser le
  * comportement de l'utilisateur et d'en tirer des statistiques d'utilisation.
  * 
  */
-
 public class Banalyser
 {
 
     private Media media;
     private Etat etat;
-    final static protected int INITIAL = 1;
-    final static protected int PAUSED = 2;
-    final static protected int PLAYING = 3;
-    final static protected int STOPPED = 4;
-    final static protected int BUFFERING = 5;
 
     public Banalyser(Media m)
     {
@@ -80,7 +74,7 @@ public class Banalyser
         if (getClass() != obj.getClass())
             return false;
         Banalyser other = (Banalyser) obj;
-        if (etat != other.etat)
+        if (!etat.equals(other.etat))
             return false;
         if (getMedia().getLog() == null)
         {
@@ -139,5 +133,4 @@ public class Banalyser
     {
         this.media = media;
     }
-
 }

@@ -5,6 +5,9 @@ import banalytics.Media;
 import banalytics.MediaMusic;
 import banalytics.MediaVideo;
 
+/**
+ * Classe de test pour l'ensemble des élements liés à Banalyser
+ */
 public class BanalyserTest
 {
 

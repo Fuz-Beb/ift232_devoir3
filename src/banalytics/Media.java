@@ -14,7 +14,7 @@ public abstract class Media
     private String type; // MUSIC or VIDEO
     private long duration;
     private MediaLog log;
-    
+
     /**
      * Con
      * 
@@ -78,7 +78,8 @@ public abstract class Media
     }
 
     /**
-     * @param log the log to set
+     * @param log
+     *            the log to set
      */
     public void setLog(MediaLog log)
     {
@@ -94,7 +95,8 @@ public abstract class Media
     }
 
     /**
-     * @param author the author to set
+     * @param author
+     *            the author to set
      */
     public void setAuthor(String author)
     {
@@ -110,7 +112,8 @@ public abstract class Media
     }
 
     /**
-     * @param title the title to set
+     * @param title
+     *            the title to set
      */
     public void setTitle(String title)
     {
@@ -126,13 +129,14 @@ public abstract class Media
     }
 
     /**
-     * @param duration the duration to set
+     * @param duration
+     *            the duration to set
      */
     public void setDuration(long duration)
     {
         this.duration = duration;
     }
-    
+
     /**
      * @return the type
      */
@@ -142,7 +146,8 @@ public abstract class Media
     }
 
     /**
-     * @param type the type to set
+     * @param type
+     *            the type to set
      */
     public void setType(String type)
     {

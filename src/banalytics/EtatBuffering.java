@@ -1,11 +1,7 @@
-/**
- * 
- */
 package banalytics;
 
 /**
- * @author Bebo
- *
+ * Classe qui représente l'état buffering
  */
 public class EtatBuffering extends Etat
 {

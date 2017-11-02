@@ -1,16 +1,14 @@
-/**
- * 
- */
 package banalytics;
 
 /**
- * @author Bebo
- *
+ * Classe qui représente un média de type video
  */
 public class MediaVideo extends Media
 {
 
     /**
+     * Constructeur de confort
+     * 
      * @param author
      * @param title
      * @param type
@@ -27,7 +25,7 @@ public class MediaVideo extends Media
     {
         String res = "";
         res += "Video: ";
-        
+
         long hours = getDuration() / (3600 * 1000);
         long minutes = (getDuration() % (3600 * 1000)) / (60 * 1000);
         long seconds = ((getDuration()) % (60 * 1000)) / 1000;

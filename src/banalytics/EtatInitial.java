@@ -1,15 +1,10 @@
-/**
- * 
- */
 package banalytics;
 
 /**
- * @author Bebo
- *
+ * Classe qui représente l'état initial
  */
 public class EtatInitial extends Etat
 {
-
     /**
      * Constructeur de confort
      * 
@@ -34,7 +29,7 @@ public class EtatInitial extends Etat
 
     @Override
     public void pause(long position)
-    {   
+    {
         throw new ExceptionDevoir2("Seul l'etat PLAYING est accepte dans un pause()");
     }
 

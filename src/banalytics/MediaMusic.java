@@ -1,16 +1,13 @@
-/**
- * 
- */
 package banalytics;
 
 /**
- * @author Bebo
- *
+ * Classe qui représente le média music
  */
 public class MediaMusic extends Media
 {
-
     /**
+     * Constructeur de confort
+     * 
      * @param author
      * @param title
      * @param type
@@ -27,7 +24,7 @@ public class MediaMusic extends Media
     {
         String res = "";
         res += "Audio: ";
-        
+
         long hours = getDuration() / (3600 * 1000);
         long minutes = (getDuration() % (3600 * 1000)) / (60 * 1000);
         long seconds = ((getDuration()) % (60 * 1000)) / 1000;
@@ -35,5 +32,4 @@ public class MediaMusic extends Media
 
         return res;
     }
-
 }
